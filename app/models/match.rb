@@ -5,7 +5,7 @@ class Match < ActiveRecord::Base
     friend_pool = users.dup.to_a
 
     users.each do |user|
-      secret_friend = friend_pool.sample
+      secret_friend = user.sample_friend(friend_pool)
       friend_pool.delete(secret_friend)
       self.send_info(user, secret_friend.name)
     end

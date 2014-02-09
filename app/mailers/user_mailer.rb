@@ -4,6 +4,6 @@ class UserMailer < ActionMailer::Base
   def secret_friend_email(user, secret_friend)
     @user = user
     @secret_friend = secret_friend
-    mail(to: @user.email, subject: 'Secret Friend').deliver
+    mail to: @user.email, subject: 'Secret Friend'
   end
 end
